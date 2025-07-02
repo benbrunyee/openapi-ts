@@ -165,7 +165,8 @@ export type Options<
   RequestOptions<TComposable, ResT, DefaultT>,
   'body' | 'path' | 'query' | 'url'
 > &
-  WithRefs<Omit<TData, 'url'>>;
+  WithRefs<Omit<TData, 'url'>> &
+  Partial<Pick<RequestOptions<TComposable, ResT, DefaultT>, 'url'>>;
 
 export type OptionsLegacyParser<TData = unknown> = TData extends { body?: any }
   ? TData extends { headers?: any }

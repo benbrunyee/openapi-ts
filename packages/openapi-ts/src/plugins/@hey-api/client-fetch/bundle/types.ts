@@ -196,8 +196,8 @@ export type Options<
   RequestOptions<TResponseStyle, ThrowOnError>,
   'body' | 'path' | 'query' | 'url'
 > &
-  Omit<TData, 'url'>;
-
+  Omit<TData, 'url'> &
+  Partial<Pick<RequestOptions<TResponseStyle, ThrowOnError>, 'url'>>;
 export type OptionsLegacyParser<
   TData = unknown,
   ThrowOnError extends boolean = boolean,

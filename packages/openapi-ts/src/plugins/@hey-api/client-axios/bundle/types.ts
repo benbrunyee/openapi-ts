@@ -160,7 +160,8 @@ export type Options<
   TData extends TDataShape = TDataShape,
   ThrowOnError extends boolean = boolean,
 > = OmitKeys<RequestOptions<ThrowOnError>, 'body' | 'path' | 'query' | 'url'> &
-  Omit<TData, 'url'>;
+  Omit<TData, 'url'> &
+  Partial<Pick<RequestOptions<ThrowOnError>, 'url'>>;
 
 export type OptionsLegacyParser<
   TData = unknown,
